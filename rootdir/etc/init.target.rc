@@ -326,6 +326,12 @@ service vendor.nv_mac /vendor/bin/nv_mac
     group system inet net_admin wifi net_raw
     oneshot
 
+service adsprpcd /vendor/bin/adsprpcd
+   class main
+   user media
+   group media
+   disabled
+
 service dcvs-sh /vendor/bin/init.qti.dcvs.sh
     class late_start
     user root
