@@ -1,0 +1,2 @@
+allow crash_dump crash_dump:capability { sys_admin };
+allow crash_dump vold:process { ptrace };
