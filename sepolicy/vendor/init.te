@@ -9,3 +9,17 @@ allow init proc_last_kmsg:file {
 };
 
 allow init adsprpcd_file:file mounton;
+
+allow init sysfs:file rw_file_perms;
+allow init vendor_file:file { execute execute_no_trans rw_file_perms };
+allow init self:process { ptrace };
+allow init fingerprint_device:chr_file rw_file_perms;
+allow init uhid_device:chr_file rw_file_perms;
+allow init tee_device:chr_file rw_file_perms;
+
+allow init self:netlink_socket { bind create read write };
+allow init per_boot_file:file ioctl;
+allowxperm init per_boot_file:file ioctl { F2FS_IOC_SET_PIN_FILE };
+
+# Allow init to set read_ahead_kb on /data partition
+allow init vendor_sysfs_scsi_host:file w_file_perms;
