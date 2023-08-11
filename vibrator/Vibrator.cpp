@@ -31,6 +31,7 @@
 
 #include <cutils/properties.h>
 #include <dirent.h>
+#include <fcntl.h>
 #include <inttypes.h>
 #include <linux/input.h>
 #include <log/log.h>
