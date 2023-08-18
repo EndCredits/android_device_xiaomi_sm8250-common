@@ -8,10 +8,10 @@ vendor/bin/loadalgo|c51fdfd59d8cd92902e011e459bc0d846854a780
 vendor/etc/init/vendor.qti.adsprpc-service.rc|54588df8e7da58c66838028d2284986b966c2d37
 vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
 vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy|f060101b26d3674bb173e5fc95e118f56a8ac15d
-vendor/lib/vendor.qti.hardware.dsp@1.0.so|0be8b21f30c8aba3381bb1e9279ba0ae9b730c60
+vendor/lib/vendor.qti.hardware.dsp@1.0.so|ecebbf5b051eb166a65704604e55a47d3a99c04b
 vendor/lib64/libadsp_default_listener.so|33f44a23edf2cf734658e762a19dfc207b1921b8
 vendor/lib64/libloadalgo_stub.so|f544ef182d9cdc77e02eb8cc2a29ce4c02d0ddfc
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so|e92a9bf499d31770f73cc35e56c6a9d77285ba7c
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|5c601246ffc04361a0d3703df6542ae409c8a4db
 
 # Audio FX modules
 vendor/lib/soundfx/libasphere.so
@@ -710,10 +710,10 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 -vendor/app/SoterService/SoterService.apk
 
 # SS Restart - from LA.UM.9.12.r1-14400-SMxx50.0
-vendor/bin/ssr_diag|82db8b7fca90bc0e87b29d32cbda5cc7e4ec0749
-vendor/bin/ssr_setup|b181e27a6b93777430026ad403ca8e9cf811f5c6
-vendor/bin/subsystem_ramdump|804a1b433124d5bd022e762e536b4ae5e6bb0f2b
-vendor/lib/libsubsystem_control.so|8a24d9a5a1c8be316bc277b9944b29af2f91a9ee
+vendor/bin/ssr_diag|060b1f22412aef56030471537d6070b9c118def0
+vendor/bin/ssr_setup|954c9ec2c1ff95bf124463e2497fd5a876f642c2
+vendor/bin/subsystem_ramdump|446971e741da890e9c5243dcf6a958aa255e4f56
+vendor/lib/libsubsystem_control.so|f27fdbea2cdd633013bdd32ffcabddbda1550c04
 vendor/lib64/libsubsystem_control.so|4f54280aa78b617665d58a78cfbdef41de1b7a07
 
 # Thermal

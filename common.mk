@@ -136,6 +136,10 @@ PRODUCT_PACKAGES += \
     libvisualizer \
     libvolumelistener
 
+# Audio Daemon
+PRODUCT_PACKAGES += \
+    audioadsprpcd
+
 # Audio Alsa Extensions
 PRODUCT_PACKAGES += \
    libaudioroute \
