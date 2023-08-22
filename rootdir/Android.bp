@@ -5,45 +5,267 @@
 //
 
 // Init scripts
-sh_binary {
+soong_config_module_type {
+    name: "platform_rootdir_sh_binary",
+    module_type: "sh_binary",
+    config_namespace: "PLATFORM_ROOTDIR",
+    variables: ["PLATFORM_TYPE"],
+    properties: ["src"],
+}
+
+soong_config_module_type {
+    name: "platform_rootdir_prebuilt_etc",
+    module_type: "prebuilt_etc",
+    config_namespace: "PLATFORM_ROOTDIR",
+    variables: ["PLATFORM_TYPE"],
+    properties: ["src"],
+}
+
+
+soong_config_string_variable {
+    name: "PLATFORM_TYPE",
+    values: ["kona", "lito"],
+}
+
+platform_rootdir_sh_binary {
     name: "init.class_main.sh",
-    src: "bin/init.class_main.sh",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/bin/init.class_main.sh"
+            },
+            lito: {
+                src: "lito/bin/init.class_main.sh"
+            },
+            conditions_default: {
+                src: "kona/bin/init.class_main.sh"
+            },
+        },
+    },
     vendor: true,
 }
 
-sh_binary {
+platform_rootdir_sh_binary {
     name: "init.mdm.sh",
-    src: "bin/init.mdm.sh",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/bin/init.mdm.sh"
+            },
+            lito: {
+                src: "lito/bin/init.mdm.sh"
+            },
+            conditions_default: {
+                src: "kona/bin/init.mdm.sh"
+            },
+        },
+    },
     vendor: true,
 }
 
-sh_binary {
+platform_rootdir_sh_binary {
     name: "init.mi.btmac.sh",
-    src: "bin/init.mi.btmac.sh",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/bin/init.mi.btmac.sh"
+            },
+            lito: {
+                src: "lito/bin/init.mi.btmac.sh"
+            },
+            conditions_default: {
+                src: "kona/bin/init.mi.btmac.sh"
+            },
+        },
+    },
     vendor: true,
 }
 
-sh_binary {
+platform_rootdir_sh_binary {
     name: "init.qcom.early_boot.sh",
-    src: "bin/init.qcom.early_boot.sh",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/bin/init.qcom.early_boot.sh"
+            },
+            lito: {
+                src: "lito/bin/init.qcom.early_boot.sh"
+            },
+            conditions_default: {
+                src: "kona/bin/init.qcom.early_boot.sh"
+            },
+        },
+    },
     vendor: true,
 }
 
-sh_binary {
+platform_rootdir_sh_binary {
     name: "init.qcom.post_boot.sh",
-    src: "bin/init.qcom.post_boot.sh",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/bin/init.qcom.post_boot.sh"
+            },
+            lito: {
+                src: "lito/bin/init.qcom.post_boot.sh"
+            },
+            conditions_default: {
+                src: "kona/bin/init.qcom.post_boot.sh"
+            },
+        },
+    },
     vendor: true,
 }
 
-sh_binary {
+platform_rootdir_sh_binary {
     name: "init.qcom.sh",
-    src: "bin/init.qcom.sh",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/bin/init.qcom.sh"
+            },
+            lito: {
+                src: "lito/bin/init.qcom.sh"
+            },
+            conditions_default: {
+                src: "kona/bin/init.qcom.sh"
+            },
+        },
+    },
+    vendor: true,
+}
+
+platform_rootdir_sh_binary {
+    name: "init.qti.dcvs.sh",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/bin/init.qti.dcvs.sh"
+            },
+            lito: {
+                src: "lito/bin/init.qti.dcvs.sh"
+            },
+            conditions_default: {
+                src: "kona/bin/init.qti.dcvs.sh"
+            },
+        },
+    },
     vendor: true,
 }
 
 sh_binary {
-    name: "init.qti.dcvs.sh",
-    src: "bin/init.qti.dcvs.sh",
+    name: "init.veth_ipa_config.sh",
+    src: "lito/bin/init.veth_ipa_config.sh",
+    vendor: true,
+}
+
+// Init configuration files
+platform_rootdir_prebuilt_etc {
+    name: "init.qcom.power.rc",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/etc/init.qcom.power.rc"
+            },
+            lito: {
+                src: "lito/etc/init.qcom.power.rc"
+            },
+            conditions_default: {
+                src: "kona/etc/init.qcom.power.rc"
+            },
+        },
+    },
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+platform_rootdir_prebuilt_etc {
+    name: "init.qcom.rc",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/etc/init.qcom.rc"
+            },
+            lito: {
+                src: "lito/etc/init.qcom.rc"
+            },
+            conditions_default: {
+                src: "kona/etc/init.qcom.rc"
+            },
+        },
+    },
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+platform_rootdir_prebuilt_etc {
+    name: "init.recovery.qcom.rc",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/etc/init.recovery.qcom.rc"
+            },
+            lito: {
+                src: "lito/etc/init.recovery.qcom.rc"
+            },
+            conditions_default: {
+                src: "kona/etc/init.recovery.qcom.rc"
+            },
+        },
+    },
+    sub_dir: "init",
+    recovery: true,
+}
+
+platform_rootdir_prebuilt_etc {
+    name: "init.target.rc",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/etc/init.target.rc"
+            },
+            lito: {
+                src: "lito/etc/init.target.rc"
+            },
+            conditions_default: {
+                src: "kona/etc/init.target.rc"
+            },
+        },
+    },
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+platform_rootdir_prebuilt_etc {
+    name: "ueventd.qcom.rc",
+    filename: "ueventd.rc",
+    soong_config_variables: {
+        PLATFORM_TYPE: {
+            kona: {
+                src: "kona/etc/ueventd.qcom.rc"
+            },
+            lito: {
+                src: "lito/etc/ueventd.qcom.rc"
+            },
+            conditions_default: {
+                src: "kona/etc/ueventd.qcom.rc"
+            },
+        },
+    },
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.xiaomi.rc",
+    src: "kona/etc/init.xiaomi.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.fingerprint.rc",
+    src: "lito/etc/init.fingerprint.rc",
+    sub_dir: "init/hw",
     vendor: true,
 }
 
@@ -76,48 +298,5 @@ xiaomi_kona_rootdir_prebuilt_etc {
             },
         },
     },
-    vendor: true,
-}
-
-// Init configuration files
-prebuilt_etc {
-    name: "init.qcom.power.rc",
-    src: "etc/init.qcom.power.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.qcom.rc",
-    src: "etc/init.qcom.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.recovery.qcom.rc",
-    src: "etc/init.recovery.qcom.rc",
-    sub_dir: "init",
-    recovery: true,
-}
-
-prebuilt_etc {
-    name: "init.target.rc",
-    src: "etc/init.target.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.xiaomi.rc",
-    src: "etc/init.xiaomi.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "ueventd.qcom.rc",
-    filename: "ueventd.rc",
-    src: "etc/ueventd.qcom.rc",
     vendor: true,
 }

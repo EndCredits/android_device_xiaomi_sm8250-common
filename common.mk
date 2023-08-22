@@ -461,8 +461,18 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    init.xiaomi.rc \
     ueventd.qcom.rc
+
+ifeq ($(TARGET_BOARD_PLATFORM), lito)
+PRODUCT_PACKAGES += \
+    init.veth_ipa_config.sh
+
+PRODUCT_PACKAGES += \
+    init.fingerprint.rc
+else
+PRODUCT_PACKAGES += \
+    init.xiaomi.rc
+endif
 
 # Sensors
 PRODUCT_PACKAGES += \
