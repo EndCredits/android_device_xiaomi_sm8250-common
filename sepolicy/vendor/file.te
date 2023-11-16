@@ -27,3 +27,5 @@ type vendor_sysfs_iio, fs_type, sysfs_type;
 type per_boot_file, file_type, data_file_type, core_data_file_type;
 
 type vendor_debugfs_clk, debugfs_type, fs_type;
+
+type sysfs_leds_brightness, fs_type, sysfs_type;
