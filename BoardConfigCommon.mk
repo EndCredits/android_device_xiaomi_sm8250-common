@@ -121,7 +121,7 @@ TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig vendor/xiaomi/sm8250-common.c
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
 # Userfaultfd GC
-PRODUCT_ENABLE_UFFD_GC := true
+OVERRIDE_ENABLE_UFFD_GC := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
