@@ -152,7 +152,6 @@ $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
     $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
 else
 # EROFS
-BOARD_EROFS_COMPRESSOR := lz4
 BOARD_EROFS_PCLUSTER_SIZE := 262144
 $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := erofs) \
