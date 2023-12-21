@@ -143,6 +143,8 @@ vendor.display.qdcm.mode_combine=1
 vendor.display.use_layer_ext=1
 vendor.display.use_smooth_motion=0
 debug.sf.auto_latch_unsignaled=false
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+vendor.display.enable_perf_hint_large_comp_cycle=1
 
 # Graphics
 debug.egl.hw=0
