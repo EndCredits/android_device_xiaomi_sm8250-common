@@ -162,6 +162,12 @@ debug.gralloc.enable_fb_ubwc=1
 debug.hwui.renderer=opengl
 debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
+debug.sf.high_fps_late_sf_phase_offset_ns=-4000000
+debug.sf.high_fps_early_phase_offset_ns=-4000000
+debug.sf.high_fps_early_gl_phase_offset_ns=-4000000
+debug.sf.perf_fps_late_sf_phase_offset_ns=-5000000
+debug.sf.perf_fps_early_phase_offset_ns=-5000000
+debug.sf.perf_fps_early_gl_phase_offset_ns=-5000000
 
 # Radio
 persist.radio.multisim.config=dsds
