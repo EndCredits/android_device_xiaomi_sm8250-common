@@ -205,9 +205,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.allocator-service
 
 PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    memtrack.$(TARGET_BOARD_PLATFORM)
+    vendor.qti.hardware.memtrack-service
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.supports_background_blur=1 \
