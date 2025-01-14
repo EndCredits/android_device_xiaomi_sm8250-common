@@ -29,3 +29,5 @@ allow init vendor_sysfs_scsi_host:file w_file_perms;
 set_prop(vendor_init, vendor_radio_prop)
 
 allow init hal_fingerprint_default:process { ptrace };
+
+set_prop(init, vendor_fingerprint_prop)
