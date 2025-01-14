@@ -954,12 +954,8 @@ function configure_memory_parameters() {
     ProductName=`getprop ro.product.name`
     low_ram=`getprop ro.config.low_ram`
 
-    if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$ProductName" == "sdmshrike_au" ] || [ "$ProductName" == "alioth" ]; then
-        # Enable ZRAM
-        configure_zram_parameters
-        configure_read_ahead_kb_values
+    if true; then
         echo 0 > /proc/sys/vm/page-cluster
-        echo 100 > /proc/sys/vm/swappiness
 
         #add memory limit to camera cgroup
         MemTotalStr=`cat /proc/meminfo | grep MemTotal`
@@ -971,22 +967,6 @@ function configure_memory_parameters() {
         fi
 
         echo $LimitSize > /dev/memcg/camera/memory.soft_limit_in_bytes
-    else
-        arch_type=`uname -m`
-        MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-        MemTotal=${MemTotalStr:16:8}
-
-        # Set parameters for 32-bit Go targets.
-        if [ $MemTotal -le 1048576 ] && [ "$low_ram" == "true" ]; then
-            # Disable KLMK, ALMK, PPR & Core Control for Go devices
-        echo 0 > /sys/module/lowmemorykiller/parameters/enable_lmk
-        echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-        echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-        disable_core_ctl
-        # Enable oom_reaper for Go devices
-        if [ -f /proc/sys/vm/reap_mem_on_sigkill ]; then
-            echo 1 > /proc/sys/vm/reap_mem_on_sigkill
-        fi
     else
 
         # Read adj series and set adj threshold for PPR and ALMK.
@@ -1075,14 +1055,9 @@ function configure_memory_parameters() {
     fi
 
     # Set allocstall_threshold to 0 for all targets.
-    # Set swappiness to 100 for all targets
-    if [[ "$ProductName" == "munch"* ]]; then
-          echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
-          echo 60 > /proc/sys/vm/swappiness
-    else
-          echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
-          echo 100 > /proc/sys/vm/swappiness
-    fi
+    # Set swappiness to 60 for all targets
+    echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
+    echo 60 > /proc/sys/vm/swappiness
 
     # Disable wsf for all targets beacause we are using efk.
     # wsf Range : 1..1000 So set to bare minimum value 1.
@@ -1101,7 +1076,6 @@ function configure_memory_parameters() {
     configure_read_ahead_kb_values
 
     enable_swap
-fi
 }
 
 function enable_memory_features()
