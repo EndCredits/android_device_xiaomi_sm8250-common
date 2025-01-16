@@ -1,5 +1,7 @@
 typeattribute tee data_between_core_and_vendor_violators;
 
+allow tee sysfs:file create_file_perms;
+
 # Allow tee to read and write the fingerprint data file
 allow tee fingerprint_data_file:dir create_dir_perms;
 allow tee fingerprint_data_file:file create_file_perms;
